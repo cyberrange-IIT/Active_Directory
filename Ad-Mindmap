@@ -1,6 +1,10 @@
 # Active Directory Mindmap 2025
 
-This document outlines key areas of Active Directory attack and defense techniques. It is based on the 2025 version of the mindmap created by Orange Cyberdefense and formatted as Markdown for easy version control and readability.
+This repository contains a Markdown version of the Active Directory Attack & Defense Mindmap (2025).
+
+It helps red teamers, blue teamers, and SOC analysts understand AD security concepts from initial access to persistence and evasion. Inspired by real-world attack chains, the mindmap also serves as a structured learning and planning tool.
+
+---
 
 ## Table of Contents
 
@@ -20,7 +24,7 @@ This document outlines key areas of Active Directory attack and defense techniqu
 ## Initial Access
 
 - Phishing (spear-phishing attachments or links)
-- Exploiting exposed services (e.g., RDP, VPN, web services)
+- Exploiting exposed services (RDP, VPN, web portals)
 - Active Directory Certificate Services (AD CS) abuse
 - SCCM / MECM abuse
 
@@ -28,9 +32,9 @@ This document outlines key areas of Active Directory attack and defense techniqu
 
 ## Account Discovery
 
-- Querying user and group membership via LDAP or PowerShell
+- LDAP queries and PowerShell-based user/group enumeration
 - Extracting SPNs for Kerberoasting
-- Using tools like BloodHound or ADFind
+- Using tools like BloodHound, ADFind, or PowerView
 
 ---
 
@@ -38,73 +42,73 @@ This document outlines key areas of Active Directory attack and defense techniqu
 
 - Kerberoasting via TGS requests
 - Brute force and password spraying
-- DCSync requests
-- LSASS memory dumping (e.g., Mimikatz, Dumpert)
-- NTDS.dit and backup file exfiltration
+- DCSync attacks
+- LSASS memory dumping (Mimikatz, ProcDump, Dumpert)
+- NTDS.dit and backup file extraction
 
 ---
 
 ## Privilege Escalation
 
-- Abusing ACLs on AdminSDHolder container
-- Group Policy Object (GPO) abuse to elevate privileges or persist
+- Abusing ACLs on AdminSDHolder or OU objects
+- Group Policy Object (GPO) misconfiguration
 - Exploiting trust relationships between domains
-- Active Directory Certificate Services escalation
+- AD CS privilege escalation paths
 
 ---
 
 ## Lateral Movement
 
-- WMI execution and remote PowerShell
-- PsExec, WMIC, and remote scheduled tasks
-- Pass-the-hash and pass-the-ticket techniques
-- Remote service creation and remote code execution
+- WMI execution and PowerShell remoting
+- PsExec, WMIC, remote tasks
+- Pass-the-Hash and Pass-the-Ticket
+- Remote service creation and code execution
 
 ---
 
 ## Persistence
 
-- Golden Ticket generation and reuse
-- Skeleton Key implant in LSASS memory
-- Creating backdoor service accounts
-- Scheduled tasks configured for persistence
+- Golden Ticket attacks
+- Skeleton Key malware
+- Backdoor service accounts
+- Scheduled tasks with elevated rights
 
 ---
 
 ## Defense Evasion
 
-- Clearing or tampering with security logs
-- Deactivating auditing policies or log forwarding
-- Modifying SID history on user accounts
-- Hiding malicious accounts or C2 activity
+- Clearing or modifying security logs
+- Disabling or bypassing auditing and logging
+- SIDHistory injection
+- Hiding users, groups, or C2 traffic
 
 ---
 
 ## Domain Understanding and Recon
 
-- Site enumeration and replication topology discovery
-- Identifying trust relationships between domains
-- Global Catalog and DNS information gathering
-- Enumerating FSMO roles and domain controller configuration
+- Enumerating sites and replication topology
+- Identifying trust relationships
+- Gathering Global Catalog and DNS records
+- Enumerating FSMO roles and domain controller details
 
 ---
 
 ## How This Was Generated
 
-This mindmap is maintained by Orange Cyberdefense and generated from Markdown using the `excalimap` tool.
+This mindmap was created by Orange Cyberdefense and converted into Markdown for version-controlled documentation.
 
-- Source files are written in Markdown
-- Rendered into diagrams using Excalidraw
-- Exported as SVG for publishing
+- Written in Markdown
+- Rendered using Excalidraw
+- Exported as SVG
 
-Contributions and pull requests are welcome via GitHub.
+Pull requests and contributions are welcome.
 
 ---
 
 ## Source and License
 
-- Original SVG file:  
+- Original Mindmap (SVG):  
   https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg
 
-- Project repository:  
+- Project Repository:  
   https://github.com/Orange-Cyberdefense/ocd-mindmaps
